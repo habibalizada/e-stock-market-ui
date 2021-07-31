@@ -11,6 +11,7 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { ListAllCompaniesComponent } from './list-all-companies/list-all-companies.component';
 import { ListOneCompanyComponent } from './list-one-company/list-one-company.component';
 import { ErrorComponent } from './error/error.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ErrorComponent } from './error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
