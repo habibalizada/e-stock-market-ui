@@ -10,6 +10,7 @@ import { AddStockComponent } from './add-stock/add-stock.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { ListAllCompaniesComponent } from './list-all-companies/list-all-companies.component';
 import { ListOneCompanyComponent } from './list-one-company/list-one-company.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListOneCompanyComponent } from './list-one-company/list-one-company.com
     AddStockComponent,
     AddCompanyComponent,
     ListAllCompaniesComponent,
-    ListOneCompanyComponent
+    ListOneCompanyComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
