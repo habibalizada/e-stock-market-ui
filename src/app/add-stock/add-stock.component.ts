@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Stock } from '../model/stock.model';
+import { EStockMarketService } from '../service/e-stock-market.service';
 
 @Component({
   selector: 'app-add-stock',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStockComponent implements OnInit {
 
-  constructor() { }
+  stock: Stock = new Stock(0);
+  companyCode: any;
+  message: any;
+
+
+  constructor(private service: EStockMarketService) { }
 
   ngOnInit(): void {
+  }
+
+  public addStockNow() {
+    let resp = this.service.doAddStock(this.stock, this.companyCode)
+    resp.subscribe((data)=>this.message=data)
+
   }
 
 }

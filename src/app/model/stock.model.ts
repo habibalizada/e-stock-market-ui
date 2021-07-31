@@ -1,2 +1,7 @@
-export class Stock {
+export class Stock{
+  stockPrice:any;
+  constructor(
+    stockPrice:number
+    ){}
 }
+
