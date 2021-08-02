@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponseCompany } from '../model/response-company.model';
+import { EStockMarketService } from '../service/e-stock-market.service';
 
 @Component({
   selector: 'app-list-all-companies',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAllCompaniesComponent implements OnInit {
 
-  constructor() { }
+  responseCompanies: any;
+
+  constructor(private service: EStockMarketService) { }
 
   ngOnInit(): void {
+    this.service.getAllCompanies().subscribe((data)=>{
+      console.warn(data)
+      this.responseCompanies = data;
+    })
+
+
   }
 
 }

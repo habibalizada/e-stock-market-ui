@@ -1,1 +1,35 @@
-<p>list-all-companies works!</p>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Company name</th>
+        <th scope="col">Code</th>
+        <th scope="col">CEO</th>
+        <th scope="col">Turnover</th>
+        <th scope="col">Website</th>
+        <th scope="col">Enlisted Stock Exchange</th>
+        <th scope="col">Latest Stock price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let response of responseCompanies">
+        <td>{{response.company.name}}</td>
+        <td>{{response.company.code}}</td>
+        <td>{{response.company.ceo}}</td>
+        <td>{{response.company.turnover | number}}</td>
+        <td>{{response.company.website}}</td>
+        <td>{{response.company.enlistedStockExchange}}</td>
+        <td>{{response.stock.stockPrice | number: '0.000'}}</td>
+        <!-- <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>@mdo</td> -->
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
