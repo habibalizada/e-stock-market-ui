@@ -5,6 +5,13 @@
     <fieldset>
       <legend class="text-center">Select Start date, End date and Company. <span class="req"><small>required *</small></span></legend>
 
+      <label for="startDate"><span class="req">* </span> Company: </label>
+      <div class="input-group">
+        <select [(ngModel)]="companyCode" name="comanyCode" id="comanyCode" class="form-control" placeholder="Enter company code...">
+          <option *ngFor="let company of responseCompanies" [(value)]="company.company.code">{{ company.company.name}}</option>
+        </select>
+        <button type="submit" class="btn btn-outline-success pull-right" (click)="findStocksBetweenDates()">Search</button>
+      </div>
 
       <div class="form-group">
         <label for="startDate"><span class="req">* </span> From date: </label>
@@ -17,13 +24,7 @@
         <div id="errFirst"></div>
       </div>
 
-      <label for="startDate"><span class="req">* </span> Company: </label>
-      <div class="input-group">
-        <select [(ngModel)]="companyCode" name="comanyCode" id="comanyCode" class="form-control" placeholder="Enter company code...">
-          <option *ngFor="let company of responseCompanies" [(value)]="company.company.code">{{ company.company.code }}</option>
-        </select>
-        <button type="submit" class="btn btn-outline-success pull-right" (click)="findStocksBetweenDates()">Search</button>
-      </div>
+
 
 
     <!-- </fieldset>
