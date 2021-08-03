@@ -1,4 +1,10 @@
 export class Company {
+  code: any
+  name: any
+  ceo: any
+  turnover: any
+  website: any
+  enlistedStockExchange: any
 
   constructor(
     code: string,
@@ -6,6 +12,6 @@ export class Company {
     ceo: string,
     turnover: number,
     website: string,
-    enlistedStockExchange: string,
+    enlistedStockExchange: string
     ) {}
 }

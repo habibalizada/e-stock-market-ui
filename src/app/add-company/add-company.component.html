@@ -1,1 +1,67 @@
-<p>add-company works!</p>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <form>
+              <fieldset>
+                  <legend class="text-center">Valid information is required to register a company. <span class="req"><small>* required fields</small></span></legend>
+
+                  <div class="form-group">
+                      <label for="code"><span class="req">* </span>Code:</label>
+                      <input required type="text" [(ngModel)]="company.code" name="code" id="code"
+                          class="form-control phone" placeholder="Enter company code..." />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="name"><span class="req">* </span>Name:</label>
+                      <input required type="text" [(ngModel)]="company.name" name="name" id="name"
+                          class="form-control phone" placeholder="Enter company name..." />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="ceo"><span class="req">* </span>CEO:</label>
+                      <input required type="text" [(ngModel)]="company.ceo" name="ceo" id="ceo"
+                          class="form-control phone" placeholder="Enter company CEO..." />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="turnover"><span class="req">* </span>Turnover:</label>
+                      <input required type="text" [(ngModel)]="company.turnover" name="turnover" id="turnover"
+                          class="form-control phone" placeholder="Enter company turnover..." />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="website"><span class="req">* </span>Website:</label>
+                      <input required type="text" [(ngModel)]="company.website" name="website" id="website"
+                          class="form-control phone" placeholder="Enter company website..." />
+                  </div>
+
+                  <div class="form-group">
+                      <label for="enlistedStockExchange"><span class="req">* </span>EnlistedS tock Exchange:</label>
+                      <input required type="text" [(ngModel)]="company.enlistedStockExchange" name="enlistedStockExchange" id="enlistedStockExchange"
+                          class="form-control phone" placeholder="Enter company enlisted stock exchange..." />
+                  </div>
+
+                  <div class="form-group">
+                      <label for="stockPrice"><span class="req">* </span> Stock price: </label>
+                      <input class="form-control" type="text" [(ngModel)]="stockRequest.stockPrice" name="stockPrice" id="txt" required
+                          placeholder="Enter stock price" />
+                      <div id="errFirst"></div>
+                  </div>
+
+                  <div class="form-group">
+                      <input class="btn btn-success" type="submit" name="submit_reg" value="registerCompany" (click)="registerCompany()">
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+
+  </div>
+</div>
+
+
+

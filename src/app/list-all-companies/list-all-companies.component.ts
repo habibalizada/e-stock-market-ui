@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseCompany } from '../model/response-company.model';
+import { TransactionCompany } from '../model/transaction-company.model';
 import { EStockMarketService } from '../service/e-stock-market.service';
 
 @Component({

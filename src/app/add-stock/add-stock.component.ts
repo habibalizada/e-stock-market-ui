@@ -11,18 +11,19 @@ export class AddStockComponent implements OnInit {
 
   stock: Stock = new Stock(0);
   companyCode: any;
-  message: any;
+  responseCompanies: any;
 
 
   constructor(private service: EStockMarketService) { }
 
   ngOnInit(): void {
+    this.service.getAllCompanies().subscribe((data)=>{
+      this.responseCompanies = data;
+    })
   }
 
   public addStockNow() {
-    let resp = this.service.doAddStock(this.stock, this.companyCode)
-    resp.subscribe((data)=>this.message=data)
-
+    this.service.doAddStock(this.stock, this.companyCode).subscribe()
   }
 
 }
