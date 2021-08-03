@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Stock } from '../model/stock.model';
 import { EStockMarketService } from '../service/e-stock-market.service';
 
@@ -12,6 +13,7 @@ export class AddStockComponent implements OnInit {
   stock: Stock = new Stock(0);
   companyCode: any;
   responseCompanies: any;
+  alert: boolean = false
 
 
   constructor(private service: EStockMarketService) { }
@@ -24,6 +26,12 @@ export class AddStockComponent implements OnInit {
 
   public addStockNow() {
     this.service.doAddStock(this.stock, this.companyCode).subscribe()
+    this.alert = true
+  }
+
+  closeAlert(addCompanyForm: NgForm) {
+    this.alert = false
+    addCompanyForm.reset();
   }
 
 }

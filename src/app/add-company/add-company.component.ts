@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Company } from '../model/company.model';
 import { Stock } from '../model/stock.model';
 import { TransactionCompany } from '../model/transaction-company.model';
@@ -14,6 +15,7 @@ export class AddCompanyComponent implements OnInit {
   company: Company = new Company('','','',0,'','');
   stockRequest: Stock = new Stock(0);
   transactionCompany: any;
+  alert: boolean = false
 
 
   constructor(private service: EStockMarketService) { }
@@ -24,6 +26,12 @@ export class AddCompanyComponent implements OnInit {
   public registerCompany() {
     this.transactionCompany = new TransactionCompany(this.company, this.stockRequest);
     this.service.doRegisterCompany(this.transactionCompany).subscribe();
+    this.alert = true
+  }
+
+  closeAlert(addCompanyForm: NgForm) {
+    this.alert = false
+    addCompanyForm.reset();
   }
 
 }
