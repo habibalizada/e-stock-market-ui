@@ -1,0 +1,86 @@
+<div class="container">
+  <!-- Search form -->
+  <div class="form-container">
+  <form #addStockForm="ngForm">
+    <fieldset>
+      <legend class="text-center">Select Start date, End date and Company. <span class="req"><small>required *</small></span></legend>
+
+
+      <div class="form-group">
+        <label for="startDate"><span class="req">* </span> From date: </label>
+        <input class="form-control" type="text" [(ngModel)]="startDate" name="startDate" id="txt" required placeholder="Enter start date" />
+        <div id="errFirst"></div>
+      </div>
+      <div class="form-group">
+        <label for="endDate"><span class="req">* </span> To date: </label>
+        <input class="form-control" type="text" [(ngModel)]="endDate" name="endDate" id="txt" required placeholder="Enter start date" />
+        <div id="errFirst"></div>
+      </div>
+
+      <label for="startDate"><span class="req">* </span> Company: </label>
+      <div class="input-group">
+        <select [(ngModel)]="companyCode" name="comanyCode" id="comanyCode" class="form-control" placeholder="Enter company code...">
+          <option *ngFor="let company of responseCompanies" [(value)]="company.company.code">{{ company.company.code }}</option>
+        </select>
+        <button type="submit" class="btn btn-outline-success pull-right" (click)="findStocksBetweenDates()">Search</button>
+      </div>
+
+
+    <!-- </fieldset>
+  </form>
+</div> -->
+
+<!-- Company info -->
+<div class="spacer">
+  <p>
+    <label for="companyCode" class="font-weight-bold col-sm-3 ">Company Code:</label>
+    <!-- <label for="companyCode" class="font-weight-light col-sm-9">{{companyCode}}</label> -->
+    <label for="companyCode" class="font-weight-light col-sm-9">{{comCode}}</label>
+  </p>
+  <p >
+    <label  for="companyCode" class="font-weight-bold col-sm-3">Company Name:</label>
+    <!-- <span *ngFor="let company of responseCompanies"> -->
+      <!-- <span *ngIf="company.company.code === companyCode"> -->
+        <!-- <label  for="co÷mpanyCode" class="font-weight-light col-sm-9">{{company.company.name}}</label> -->
+        <label  for="companyCode" class="font-weight-light col-sm-9">{{comName}}</label>
+
+    <!-- </span> -->
+  <!-- </span> -->
+  </p>
+  <p>
+    <label for="companyCode" class="font-weight-bold col-sm-3 ">Minimum stock price:</label>
+    <label for="companyCode" class="font-weight-light col-sm-9">{{min}}</label>
+  </p>
+  <p>
+    <label for="companyCode" class="font-weight-bold col-sm-3 ">Maximum stock price:</label>
+    <label for="companyCode" class="font-weight-light col-sm-9">{{max}}</label>
+  </p>
+  <p>
+    <label for="companyCode" class="font-weight-bold col-sm-3 ">Average stock price:</label>
+    <label for="companyCode" class="font-weight-light col-sm-9">{{ave}}</label>
+  </p>
+</div>
+
+  <!-- List of stock -->
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Stock price</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let response of responseStoks">
+          <td>{{ response.stockPrice | currency }}</td>
+          <td>{{ response.createDateTime | date: "mediumDate" }}</td>
+          <td>{{ response.createDateTime | date: "mediumTime" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</fieldset>
+</form>
+</div>
+</div>

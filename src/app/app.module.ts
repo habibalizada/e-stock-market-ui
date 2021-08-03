@@ -12,7 +12,8 @@ import { ListAllCompaniesComponent } from './list-all-companies/list-all-compani
 import { ListOneCompanyComponent } from './list-one-company/list-one-company.component';
 import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FindACompanyComponent } from './find-a-company/find-a-company.component'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http'
     AddCompanyComponent,
     ListAllCompaniesComponent,
     ListOneCompanyComponent,
-    ErrorComponent
+    ErrorComponent,
+    FindACompanyComponent
   ],
   imports: [
     BrowserModule,

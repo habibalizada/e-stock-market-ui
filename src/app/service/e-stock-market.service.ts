@@ -19,11 +19,15 @@ export class EStockMarketService {
   }
 
   public getAllStocks() {
-    return this.http.get("http://localhost:9191/api/v1.0/market/stock/getall" ,{responseType:'text' as 'json'});
+    return this.http.get("http://localhost:8989/api/v1.0/market/stock/getall");
   }
 
   public getAllCompanies() {
     return this.http.get<TransactionCompany>("http://localhost:8989/api/v1.0/market/company/getall" );
+  }
+
+  doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
+    return this.http.get("http://localhost:8989/api/v1.0/market/stock/get/" + companyCode + "/" + startDate+ "/" + enddate)
   }
 }
 
