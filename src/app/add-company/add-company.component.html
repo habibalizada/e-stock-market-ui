@@ -11,6 +11,14 @@
           </button>
         </div>
 
+        <!-- Error alert -->
+        <div *ngIf="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Error !</strong>{{errormessage}}
+          <button (click)="closeErrorAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
           <form #addCompanyForm="ngForm">
               <fieldset>
                   <legend class="text-center">Valid information is required to register a company. <span class="req"><small>* required fields</small></span></legend>
@@ -18,52 +26,53 @@
                   <div class="form-group">
                       <label for="code"><span class="req">* </span>Code:</label>
                       <input required type="text" [(ngModel)]="company.code" name="code" id="code"
-                          class="form-control phone" placeholder="Enter company code..." />
+                          class="form-control phone" placeholder="Enter company code..." required/>
                   </div>
 
 
                   <div class="form-group">
                       <label for="name"><span class="req">* </span>Name:</label>
                       <input required type="text" [(ngModel)]="company.name" name="name" id="name"
-                          class="form-control phone" placeholder="Enter company name..." />
+                          class="form-control phone" placeholder="Enter company name..." required/>
                   </div>
 
 
                   <div class="form-group">
                       <label for="ceo"><span class="req">* </span>CEO:</label>
                       <input required type="text" [(ngModel)]="company.ceo" name="ceo" id="ceo"
-                          class="form-control phone" placeholder="Enter company CEO..." />
+                          class="form-control phone" placeholder="Enter company CEO..." required/>
                   </div>
 
 
                   <div class="form-group">
                       <label for="turnover"><span class="req">* </span>Turnover:</label>
                       <input required type="text" [(ngModel)]="company.turnover" name="turnover" id="turnover"
-                          class="form-control phone" placeholder="Enter company turnover..." />
+                          class="form-control phone" placeholder="Enter company turnover..." required/>
                   </div>
 
 
                   <div class="form-group">
                       <label for="website"><span class="req">* </span>Website:</label>
                       <input required type="text" [(ngModel)]="company.website" name="website" id="website"
-                          class="form-control phone" placeholder="Enter company website..." />
+                          class="form-control phone" placeholder="Enter company website..." required/>
                   </div>
 
                   <div class="form-group">
                       <label for="enlistedStockExchange"><span class="req">* </span>EnlistedS tock Exchange:</label>
                       <input required type="text" [(ngModel)]="company.enlistedStockExchange" name="enlistedStockExchange" id="enlistedStockExchange"
-                          class="form-control phone" placeholder="Enter company enlisted stock exchange..." />
+                          class="form-control phone" placeholder="Enter company enlisted stock exchange..." required/>
                   </div>
 
                   <div class="form-group">
                       <label for="stockPrice"><span class="req">* </span> Stock price: </label>
                       <input class="form-control" type="text" [(ngModel)]="stockRequest.stockPrice" name="stockPrice" id="txt" required
-                          placeholder="Enter stock price" />
+                          placeholder="Enter stock price" required/>
                       <div id="errFirst"></div>
                   </div>
 
                   <div class="form-group">
-                      <input class="btn btn-success" type="submit" name="submit_reg" value="registerCompany" (click)="registerCompany()">
+                      <!-- <input class="btn btn-success" type="submit" name="submit_reg" value="Register Company" (click)="registerCompany()" [disabled]="!addCompanyForm"> -->
+                      <button class="btn btn-success" type="submit"  (click)="registerCompany()" [disabled]="!addCompanyForm.valid">Register Company</button>
                   </div>
               </fieldset>
           </form>

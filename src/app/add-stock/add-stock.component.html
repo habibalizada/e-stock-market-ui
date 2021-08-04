@@ -18,20 +18,21 @@
                     <div class="form-group">
                         <label for="comanyCode"><span class="req">* </span> Company Code:</label>
                         <select  [(ngModel)]="companyCode" name="comanyCode" id="comanyCode"
-                            class="form-control" placeholder="Enter company code..." >
-                            <option *ngFor="let company of responseCompanies" [(value)]='company.company.code'>{{company.company.code}}</option>
+                            class="form-control" placeholder="Enter company code..." required>
+                            <option *ngFor="let company of responseCompanies" [(value)]='company.company.code' required>{{company.company.code}}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="stockPrice"><span class="req">* </span> Stock price: </label>
                         <input class="form-control" type="text" [(ngModel)]="stock.stockPrice" name="stockPrice" id="txt" required
-                            placeholder="Enter stock price" />
+                            placeholder="Enter stock price" required />
                         <div id="errFirst"></div>
                     </div>
 
                     <div class="form-group">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Add stock" (click)="addStockNow()">
+                        <!-- <input class="btn btn-success" type="submit" name="submit_reg" value="Add stock" (click)="addStockNow()"> -->
+                        <button class="btn btn-success" type="submit" (click)="addStockNow()" [disabled]="!addStockForm.valid">Add Stock</button>
                     </div>
                 </fieldset>
             </form>

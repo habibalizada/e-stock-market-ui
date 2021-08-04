@@ -16,6 +16,8 @@ export class AddCompanyComponent implements OnInit {
   stockRequest: Stock = new Stock(0);
   transactionCompany: any;
   alert: boolean = false
+  errorAlert: boolean = false
+  errormessage: string | undefined = undefined
 
 
   constructor(private service: EStockMarketService) { }
@@ -25,13 +27,32 @@ export class AddCompanyComponent implements OnInit {
 
   public registerCompany() {
     this.transactionCompany = new TransactionCompany(this.company, this.stockRequest);
-    this.service.doRegisterCompany(this.transactionCompany).subscribe();
-    this.alert = true
+    this.service.doRegisterCompany(this.transactionCompany).subscribe((data)=>{
+      console.warn(data);
+    }, (error)=>{
+      // console.warn(error);
+      this.errormessage = error
+      this.errorAlert = true
+      if (this.errorAlert) {
+        this.alert = false
+
+      }
+
+
+    });
+    if (!this.errorAlert) {
+      this.alert = true;
+    }
+
   }
 
   closeAlert(addCompanyForm: NgForm) {
     this.alert = false
     addCompanyForm.reset();
+  }
+
+  closeErrorAlert() {
+    this.errorAlert = false;
   }
 
 }
