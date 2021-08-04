@@ -14,6 +14,7 @@ import { ErrorComponent } from './error/error.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FindACompanyComponent } from './find-a-company/find-a-company.component'
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { FindACompanyComponent } from './find-a-company/find-a-company.component
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
