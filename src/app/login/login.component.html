@@ -1,8 +1,25 @@
-<small *ngIf="invalidLogin">{{errorMessage}}</small>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
 
-<div>
-  User Name: <input type="text" name="username" [(ngModel)]="username">
-  Password: <input type="password" name="password" [(ngModel)]="password">
 
-  <button (click)=handleLogin()>Login</button>
+      <form #addStockForm="ngForm">
+        <fieldset>
+          <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required
+                *</small></span></legend>
+
+          <small *ngIf="invalidLogin">{{errorMessage}}</small>
+
+          <div>
+            User Name: <input type="text" name="username" [(ngModel)]="username">
+            Password: <input type="password" name="password" [(ngModel)]="password">
+
+            <button (click)=handleLogin()>Login</button>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
 </div>
