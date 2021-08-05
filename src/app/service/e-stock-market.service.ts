@@ -57,7 +57,11 @@ export class EStockMarketService {
   }
 
   doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
-    return this.http.get("http://localhost:8989/api/v1.0/market/stock/get/" + companyCode + "/" + startDate+ "/" + enddate)
+    return this.http.get(`http://localhost:8989/api/v1.0/market/stock/get/${companyCode}/${startDate}/${enddate}`)
+  }
+
+  doDeleteACompany (companyCode: any) {
+    return this.http.delete(`http://localhost:8989/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
   }
 }
 
