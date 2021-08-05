@@ -1,33 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Company } from '../model/company.model';
 import { Stock } from '../model/stock.model';
 import { TransactionCompany } from '../model/transaction-company.model';
 import { EStockMarketService } from '../service/e-stock-market.service';
 
 @Component({
-  selector: 'app-add-company',
-  templateUrl: './add-company.component.html',
-  styleUrls: ['./add-company.component.css'],
+  selector: 'app-edit-company',
+  templateUrl: './edit-company.component.html',
+  styleUrls: ['./edit-company.component.css'],
 })
-export class AddCompanyComponent implements OnInit {
+export class EditCompanyComponent implements OnInit {
   company: Company = new Company('', '', '', 0, '', '');
   stockRequest: Stock = new Stock(0);
   transactionCompany: any;
+
   alert: boolean = false;
   errorAlert: boolean = false;
   errormessage: string | undefined = undefined;
 
-  constructor(private service: EStockMarketService) {}
+  constructor(
+    private service: EStockMarketService,
+    private router: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.warn(this.router.snapshot.params.code);
+    this.service
+      .doGetCompanyByCode(this.router.snapshot.params.code)
+      .subscribe((data) => {
+        console.warn(data);
+        this.transactionCompany = data;
+        console.warn(this.transactionCompany);
+        this.company = this.transactionCompany.company;
+        console.warn(this.company);
+      });
+  }
 
-  public registerCompany() {
-    this.transactionCompany = new TransactionCompany(
-      this.company,
-      this.stockRequest
-    );
-    this.service.doRegisterCompany(this.transactionCompany).subscribe(
+  public updateACompany() {
+    this.service.doUpdateACompany(this.company).subscribe(
       (data) => {
         console.warn(data);
       },

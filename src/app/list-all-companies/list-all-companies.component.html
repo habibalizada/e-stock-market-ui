@@ -21,7 +21,15 @@
         <td>{{response.company.website}}</td>
         <td>{{response.company.enlistedStockExchange}}</td>
         <td>{{response.stock.stockPrice | currency}}</td>
-        <td><i class="fa fa-trash" style="font-size:20px; color:red;" (click)="deleteCompany(response.company.code)"></i></td>
+        <td><i class="fa fa-trash" style="font-size:20px; color:red; cursor: pointer;"
+            (click)="deleteCompany(response.company.code)"></i></td>
+        <td>
+          <!-- <a routerLink="edit/{{response.company.code}}}"> -->
+          <a routerLink="edit/{{response.company.code}}">
+            <i class="fa fa-edit" style="font-size:20px; color:blue;"></i>
+          </a>
+        </td>
+
         <!-- <th scope="row">1</th>
         <td>Mark</td>
         <td>Otto</td>

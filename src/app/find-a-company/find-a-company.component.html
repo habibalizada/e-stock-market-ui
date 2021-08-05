@@ -52,7 +52,7 @@
           <div class="input-group col">
             <select [(ngModel)]="companyCode" name="comanyCode" id="comanyCode" class="form-control"
               placeholder="Enter company code..." required>
-              <option *ngFor="let company of responseCompanies" [(value)]="company.company.code" required>{{
+              <option *ngFor="let company of responseCompanies" [value]="company.company.code" required>{{
                 company.company.name}}</option>
             </select>
             <button type="submit" class="btn btn-outline-success pull-right"

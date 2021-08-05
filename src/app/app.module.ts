@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FindACompanyComponent } from './find-a-company/find-a-company.component'
 import { DatePipe } from '@angular/common';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DatePipe } from '@angular/common';
     AddCompanyComponent,
     ListAllCompaniesComponent,
     ErrorComponent,
-    FindACompanyComponent
+    FindACompanyComponent,
+    EditCompanyComponent
   ],
   imports: [
     BrowserModule,

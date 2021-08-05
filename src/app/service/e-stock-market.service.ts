@@ -56,12 +56,20 @@ export class EStockMarketService {
     return this.http.get<TransactionCompany>("http://localhost:8989/api/v1.0/market/company/getall" );
   }
 
-  doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
+  public doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
     return this.http.get(`http://localhost:8989/api/v1.0/market/stock/get/${companyCode}/${startDate}/${enddate}`)
   }
 
-  doDeleteACompany (companyCode: any) {
+  public doDeleteACompany (companyCode: any) {
     return this.http.delete(`http://localhost:8989/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
+  }
+
+  public doGetCompanyByCode(companyCode: any) {
+    return this.http.get(`http://localhost:8989/api/v1.0/market/company/info/${companyCode}`)
+  }
+
+  public doUpdateACompany (company: any) {
+    return this.http.put(`http://localhost:8989/api/v1.0/market/company/update`, company)
   }
 }
 

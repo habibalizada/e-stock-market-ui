@@ -19,7 +19,7 @@
                         <label for="comanyCode"><span class="req">* </span> Company Code:</label>
                         <select  [(ngModel)]="companyCode" name="comanyCode" id="comanyCode"
                             class="form-control" placeholder="Enter company code..." required>
-                            <option *ngFor="let company of responseCompanies" [(value)]='company.company.code' required>{{company.company.code}}</option>
+                            <option *ngFor="let company of responseCompanies" [value]='company.company.code' required>{{company.company.code}}</option>
                         </select>
                     </div>
 
