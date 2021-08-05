@@ -23,8 +23,8 @@ export class FindACompanyComponent implements OnInit {
   ave:any
   comCode:any
   comName:any
-
   endNexday:any
+  showInfo: boolean = false
 
 
 
@@ -57,6 +57,7 @@ export class FindACompanyComponent implements OnInit {
         this.comCode = this.companyCode
       }
     }
+    this.showInfo = true
 
   }
 }
