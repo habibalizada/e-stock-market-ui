@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-{ path: '', component: ListAllCompaniesComponent },
+{ path: '', redirectTo:'get-all-companies', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },
 { path: 'get-all-companies', component: ListAllCompaniesComponent },
 { path: 'get-a-company', component: FindACompanyComponent },
