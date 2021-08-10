@@ -8,6 +8,7 @@ import { FindACompanyComponent } from './find-a-company/find-a-company.component
 import { ListAllCompaniesComponent } from './list-all-companies/list-all-companies.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouteGuardService } from './service/route-guard.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -15,11 +16,11 @@ const routes: Routes = [
 { path: '', component: LoginComponent },
 { path: 'login', component: LoginComponent },
 { path: 'logout', component: LogoutComponent },
-{ path: 'get-all-companies', component: ListAllCompaniesComponent },
-{ path: 'get-a-company', component: FindACompanyComponent },
-{ path: 'add-stock', component: AddStockComponent },
-{ path: 'add-company', component: AddCompanyComponent },
-{ path: 'get-all-companies/edit/:code', component: EditCompanyComponent },
+{ path: 'get-all-companies', component: ListAllCompaniesComponent, canActivate:[RouteGuardService] },
+{ path: 'get-a-company', component: FindACompanyComponent, canActivate:[RouteGuardService] },
+{ path: 'add-stock', component: AddStockComponent, canActivate:[RouteGuardService] },
+{ path: 'add-company', component: AddCompanyComponent, canActivate:[RouteGuardService] },
+{ path: 'get-all-companies/edit/:code', component: EditCompanyComponent, canActivate:[RouteGuardService] },
 { path: '**', component: ErrorComponent },
 ];
 @NgModule({
