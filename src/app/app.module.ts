@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FindACompanyComponent } from './find-a-company/find-a-company.component'
 import { DatePipe } from '@angular/common';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EditCompanyComponent } from './edit-company/edit-company.component';
     ListAllCompaniesComponent,
     ErrorComponent,
     FindACompanyComponent,
-    EditCompanyComponent
+    EditCompanyComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

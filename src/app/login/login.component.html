@@ -9,13 +9,13 @@
           <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required
                 *</small></span></legend>
 
-          <small *ngIf="invalidLogin">{{errorMessage}}</small>
+          <small *ngIf="invalidLogin" style="color: red;">{{errorMessage}}</small>
 
           <div>
-            User Name: <input type="text" name="username" [(ngModel)]="username">
-            Password: <input type="password" name="password" [(ngModel)]="password">
+            User Name: <input type="text" name="username" [(ngModel)]="username" required>
+            Password: <input type="password" name="password" [(ngModel)]="password" required>
 
-            <button class="btn btn-success" (click)=handleLogin()>Login</button>
+            <button class="btn btn-success" (click)=handleLogin() [disabled]="!loginForm.valid">Login</button>
           </div>
 
         </fieldset>
