@@ -7,11 +7,14 @@ import { ErrorComponent } from './error/error.component';
 import { FindACompanyComponent } from './find-a-company/find-a-company.component';
 import { ListAllCompaniesComponent } from './list-all-companies/list-all-companies.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-{ path: '', redirectTo:'get-all-companies', pathMatch: 'full' },
+// { path: '', redirectTo:'get-all-companies', pathMatch: 'full' },
+{ path: '', component: LoginComponent },
 { path: 'login', component: LoginComponent },
+{ path: 'logout', component: LogoutComponent },
 { path: 'get-all-companies', component: ListAllCompaniesComponent },
 { path: 'get-a-company', component: FindACompanyComponent },
 { path: 'add-stock', component: AddStockComponent },

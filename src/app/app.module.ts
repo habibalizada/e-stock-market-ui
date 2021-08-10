@@ -16,6 +16,7 @@ import { FindACompanyComponent } from './find-a-company/find-a-company.component
 import { DatePipe } from '@angular/common';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { MenuComponent } from './menu/menu.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MenuComponent } from './menu/menu.component';
     ErrorComponent,
     FindACompanyComponent,
     EditCompanyComponent,
-    MenuComponent
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
