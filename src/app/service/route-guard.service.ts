@@ -5,6 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
+import { TokenStorageService } from '../_services/token-storage.service';
 import { HardcodedAuthenticationService } from './hardcoded-authentication.service';
 
 @Injectable({
@@ -12,12 +13,12 @@ import { HardcodedAuthenticationService } from './hardcoded-authentication.servi
 })
 export class RouteGuardService implements CanActivate {
   constructor(
-    private hardcodedAuthenticationService: HardcodedAuthenticationService,
+    private tokenStorage: TokenStorageService,
     private router: Router
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.hardcodedAuthenticationService.isUserLoggedIn()) {
+    if (this.tokenStorage.getToken()) {
       return true;
     }
 

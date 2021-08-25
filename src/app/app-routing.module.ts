@@ -15,7 +15,7 @@ const routes: Routes = [
 // { path: '', redirectTo:'get-all-companies', pathMatch: 'full' },
 { path: '', component: LoginComponent },
 { path: 'login', component: LoginComponent },
-{ path: 'logout', component: LogoutComponent },
+// { path: 'logout', component: LogoutComponent },
 { path: 'get-all-companies', component: ListAllCompaniesComponent, canActivate:[RouteGuardService] },
 { path: 'get-a-company', component: FindACompanyComponent, canActivate:[RouteGuardService] },
 { path: 'add-stock', component: AddStockComponent, canActivate:[RouteGuardService] },

@@ -1,26 +1,67 @@
-<h1>Login</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
+<div class="col-md-12">
+  <div class="card card-container">
 
-
-      <form #loginForm="ngForm">
-        <fieldset>
-          <legend class="text-center">Valid information is required to add stock. <span class="req"><small>required
-                *</small></span></legend>
-
-          <small *ngIf="invalidLogin" style="color: red;">{{errorMessage}}</small>
-
-          <div>
-            User Name: <input type="text" name="username" [(ngModel)]="username" required>
-            Password: <input type="password" name="password" [(ngModel)]="password" required>
-
-            <button class="btn btn-success" (click)=handleLogin() [disabled]="!loginForm.valid">Login</button>
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="username.errors && f.submitted"
+        >
+          Username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="password.errors && f.submitted"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
           </div>
-
-        </fieldset>
-      </form>
-    </div>
-
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
   </div>
 </div>
