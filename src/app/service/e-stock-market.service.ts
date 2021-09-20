@@ -21,7 +21,7 @@ export class EStockMarketService {
 
   public doAddStock(stock: any, companyCode: any) {
     // return this.http.post("http://localhost:9191/api/v1.0/market/stock/add/" + companyCode, stock, {responseType:'text' as 'json'});
-    return this.http.post("http://localhost:8989/api/v1.0/market/stock/add/" + companyCode, stock, {responseType:'text' as 'json'});
+    return this.http.post("http://localhost:8989/api/v1.0/market/stock/command/add/" + companyCode, stock, {responseType:'text' as 'json'});
   }
 
   public doRegisterCompany(stransactionCompany: any): Observable<any>{
@@ -49,7 +49,7 @@ export class EStockMarketService {
 
 
   public getAllStocks() {
-    return this.http.get("http://localhost:8989/api/v1.0/market/stock/getall");
+    return this.http.get("http://localhost:8989/api/v1.0/market/stock/query/getall");
   }
 
   public getAllCompanies() {
@@ -57,7 +57,7 @@ export class EStockMarketService {
   }
 
   public doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
-    return this.http.get(`http://localhost:8989/api/v1.0/market/stock/get/${companyCode}/${startDate}/${enddate}`)
+    return this.http.get(`http://localhost:8989/api/v1.0/market/stock/query/get/${companyCode}/${startDate}/${enddate}`)
   }
 
   public doDeleteACompany (companyCode: any) {
