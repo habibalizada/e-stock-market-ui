@@ -5,11 +5,11 @@ body {
   margin: 0;
 }
 
-.container {
+/* .container {
   display: grid;
   height: 100vh;
   place-items: center;
-}
+} */
 fieldset {
   border: thin solid #ccc;
   border-radius: 4px;
