@@ -17,6 +17,7 @@ import { DatePipe } from '@angular/common';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

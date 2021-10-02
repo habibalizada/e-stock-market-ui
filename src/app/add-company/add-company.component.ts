@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Company } from '../model/company.model';
 import { Stock } from '../model/stock.model';
 import { TransactionCompany } from '../model/transaction-company.model';
@@ -18,7 +19,10 @@ export class AddCompanyComponent implements OnInit {
   errorAlert: boolean = false;
   errormessage: string | undefined = undefined;
 
-  constructor(private service: EStockMarketService) {}
+  constructor(
+    private service: EStockMarketService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {}
 
@@ -48,6 +52,7 @@ export class AddCompanyComponent implements OnInit {
   closeAlert(addCompanyForm: NgForm) {
     this.alert = false;
     addCompanyForm.reset();
+    this.router.navigate(['get-all-companies'])
   }
 
   closeErrorAlert() {

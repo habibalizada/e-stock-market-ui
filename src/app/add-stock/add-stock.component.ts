@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Stock } from '../model/stock.model';
 import { EStockMarketService } from '../service/e-stock-market.service';
 
@@ -16,7 +17,10 @@ export class AddStockComponent implements OnInit {
   alert: boolean = false
 
 
-  constructor(private service: EStockMarketService) { }
+  constructor(
+    private service: EStockMarketService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     this.service.getAllCompanies().subscribe((data)=>{
@@ -32,6 +36,7 @@ export class AddStockComponent implements OnInit {
   closeAlert(addCompanyForm: NgForm) {
     this.alert = false
     addCompanyForm.reset();
+    this.router.navigate(['get-all-companies'])
   }
 
 }

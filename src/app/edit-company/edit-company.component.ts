@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from '../model/company.model';
 import { Stock } from '../model/stock.model';
 import { TransactionCompany } from '../model/transaction-company.model';
@@ -22,13 +22,14 @@ export class EditCompanyComponent implements OnInit {
 
   constructor(
     private service: EStockMarketService,
-    private router: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    console.warn(this.router.snapshot.params.code);
+    console.warn(this.activatedRoute.snapshot.params.code);
     this.service
-      .doGetCompanyByCode(this.router.snapshot.params.code)
+      .doGetCompanyByCode(this.activatedRoute.snapshot.params.code)
       .subscribe((data) => {
         console.warn(data);
         this.transactionCompany = data;
@@ -60,6 +61,7 @@ export class EditCompanyComponent implements OnInit {
   closeAlert(addCompanyForm: NgForm) {
     this.alert = false;
     addCompanyForm.reset();
+    this.router.navigate(['get-all-companies'])
   }
 
   closeErrorAlert() {
