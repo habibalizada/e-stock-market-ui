@@ -4,6 +4,8 @@ import { TransactionCompany } from '../model/transaction-company.model';
 import { Observable, throwError } from 'rxjs'
 import { catchError } from 'rxjs/operators';
 
+const BASE_URL = "http://ec2-3-138-245-147.us-east-2.compute.amazonaws.com:8989";
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,11 +23,11 @@ export class EStockMarketService {
 
   public doAddStock(stock: any, companyCode: any) {
     // return this.http.post("http://localhost:9191/api/v1.0/market/stock/add/" + companyCode, stock, {responseType:'text' as 'json'});
-    return this.http.post("http://localhost:8989/api/v1.0/market/stock/command/add/" + companyCode, stock, {responseType:'text' as 'json'});
+    return this.http.post(BASE_URL + "/api/v1.0/market/stock/command/add/" + companyCode, stock, {responseType:'text' as 'json'});
   }
 
   public doRegisterCompany(stransactionCompany: any): Observable<any>{
-    return this.http.post("http://localhost:8989/api/v1.0/market/company/register" , stransactionCompany)
+    return this.http.post(BASE_URL + "/api/v1.0/market/company/register" , stransactionCompany)
     .pipe(catchError(this.handleError));
   }
 
@@ -49,27 +51,27 @@ export class EStockMarketService {
 
 
   public getAllStocks() {
-    return this.http.get("http://localhost:8989/api/v1.0/market/stock/query/getall");
+    return this.http.get(`${BASE_URL}/api/v1.0/market/stock/query/getall`);
   }
 
   public getAllCompanies() {
-    return this.http.get<TransactionCompany>("http://localhost:8989/api/v1.0/market/company/getall" );
+    return this.http.get<TransactionCompany>(`${BASE_URL}/api/v1.0/market/company/getall`);
   }
 
   public doFindStocksBetweenDates(companyCode: any, startDate: Date, enddate: Date) {
-    return this.http.get(`http://localhost:8989/api/v1.0/market/stock/query/get/${companyCode}/${startDate}/${enddate}`)
+    return this.http.get(`${BASE_URL}/api/v1.0/market/stock/query/get/${companyCode}/${startDate}/${enddate}`)
   }
 
   public doDeleteACompany (companyCode: any) {
-    return this.http.delete(`http://localhost:8989/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
+    return this.http.delete(`${BASE_URL}/api/v1.0/market/company/delete/${companyCode}`,{responseType:'text' as 'json'})
   }
 
   public doGetCompanyByCode(companyCode: any) {
-    return this.http.get(`http://localhost:8989/api/v1.0/market/company/info/${companyCode}`)
+    return this.http.get(`${BASE_URL}/api/v1.0/market/company/info/${companyCode}`)
   }
 
   public doUpdateACompany (company: any) {
-    return this.http.put(`http://localhost:8989/api/v1.0/market/company/update`, company)
+    return this.http.put(`${BASE_URL}/api/v1.0/market/company/update`, company)
   }
 }
 

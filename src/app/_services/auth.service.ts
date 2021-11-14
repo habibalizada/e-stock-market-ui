@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8989/auth/login';
+// const AUTH_API = 'http://localhost:8989/auth/login';
+const AUTH_API = 'http://ec2-3-138-245-147.us-east-2.compute.amazonaws.com:8989/auth/login';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
